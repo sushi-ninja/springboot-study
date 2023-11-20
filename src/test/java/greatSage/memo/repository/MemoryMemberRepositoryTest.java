@@ -3,11 +3,15 @@ package greatSage.memo.repository;
 import greatSage.memo.domain.Member;
 import greatSage.memo.reprository.MemberRepository;
 import greatSage.memo.reprository.MemoryMemberRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
+//import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.*;
 
 class MemoryMemberRepositoryTest {
     MemberRepository repository = new MemoryMemberRepository();
@@ -30,7 +34,9 @@ class MemoryMemberRepositoryTest {
         Member result = repository.findById(member.getId()).get();
 //        System.out.println("result = " + (result == member));
 
-        Assertions.assertEquals(member, result);
+        // static import 로 간결하게 코드 정리
+        assertThat(member).isEqualTo(result);
+//        Assertions.assertEquals(member, result);
     }
 
     @Test
@@ -45,8 +51,8 @@ class MemoryMemberRepositoryTest {
 
         Member result = repository.findByName("spring1").get();
 
-        Assertions.assertEquals(member1, result);
-
+        assertThat(result).isEqualTo(member1);
+ 
     }
 
     @Test

@@ -9,7 +9,7 @@ import java.util.Optional;
 public class MemberService {
     private final MemberRepository memberRepository = new MemoryMemberRepository();
 
-    /**
+    /** 
      * 회원 가입
      * @param member
      * @return
